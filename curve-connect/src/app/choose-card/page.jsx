@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import greetingCardData from "@/constants/greetingCardData";
-import SelectCard from "@/components/SelectCard";
+import SelectCard from "@/components/selectCard";
 import StepperComponent from "@/components/Stepper";
 import { Typography, Button, Grid } from "@mui/material";
 
