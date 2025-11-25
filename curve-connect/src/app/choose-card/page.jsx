@@ -5,18 +5,12 @@ import { useRouter } from "next/navigation";
 import greetingCardData from "@/constants/greetingCardData";
 import SelectCard from "@/components/selectCard";
 import StepperComponent from "@/components/Stepper";
-import {
-  Typography,
-  Button,
-  Grid
-} from "@mui/material";
-
+import { Typography, Button, Grid } from "@mui/material";
 
 export default function ChooseCardPage() {
   const [selectedId, setSelectedId] = useState(null);
   const router = useRouter();
   const steps = ["Select Card", "Add Details", "Confirmation"];
-
 
   const handleConfirm = () => {
     if (!selectedId) return;
@@ -27,7 +21,6 @@ export default function ChooseCardPage() {
 
   return (
     <div className="p-10 max-w-1xl">
-      
       <StepperComponent activeStep={1} />
       <Typography
         variant="h5"
@@ -47,9 +40,10 @@ export default function ChooseCardPage() {
           return (
             <Grid item xs={12} sm={6} md={4} key={card.id}>
               <SelectCard
-              card={card}
-              selected={card.id === selectedId}
-              onSelect={setSelectedId}/>
+                card={card}
+                selected={card.id === selectedId}
+                onSelect={setSelectedId}
+              />
             </Grid>
           );
         })}

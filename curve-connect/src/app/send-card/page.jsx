@@ -2,8 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Stepper, Step, StepLabel } from "@mui/material";
 import greetingCardData from "@/constants/greetingCardData";
+import StepperComponent from "@/components/Stepper";
 
 import PreviewCard from "@/components/PreviewCard";
 import CardForm from "@/components/CardForm";
@@ -15,7 +15,16 @@ export default function SendCardPage() {
   const selectedId = searchParams.get("template");
 
   const [selectedCard, setSelectedCard] = useState(null);
-  const { form, status, modalOpen, validationErrors, handleChange, openModal, closeModal, confirmSend } = useSendCard(selectedId);
+  const {
+    form,
+    status,
+    modalOpen,
+    validationErrors,
+    handleChange,
+    openModal,
+    closeModal,
+    confirmSend,
+  } = useSendCard(selectedId);
 
   const [activeStep, setActiveStep] = useState(1);
   const steps = ["Select Card", "Add Details", "Confirmation"];
@@ -31,18 +40,14 @@ export default function SendCardPage() {
 
   return (
     <div className="p-6 max-w-xl mx-auto">
-      <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
-        {steps.map(label => (
-          <Step key={label}><StepLabel>{label}</StepLabel></Step>
-        ))}
-      </Stepper>
+      <StepperComponent activeStep={0} />
 
       <PreviewCard card={selectedCard} />
       <CardForm
         form={form}
         onChange={handleChange}
         onReview={openModal}
-        onChangeTemplate={() => window.location.href = "/choose-card"} 
+        onChangeTemplate={() => (window.location.href = "/choose-card")}
         status={status}
       />
       <ConfirmModal

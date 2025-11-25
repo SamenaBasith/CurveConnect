@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Button, Stepper, Step, StepLabel } from "@mui/material";
+import { Button} from "@mui/material";
 import StepperComponent from "@/components/Stepper";
 
 export default function CardSentPage() {
@@ -11,13 +11,7 @@ export default function CardSentPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-6 p-6">
       {/* Stepper */}
-      <Stepper activeStep={2} alternativeLabel sx={{ width: "100%", maxWidth: 500, mb: 6  }}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>;
+      <StepperComponent activeStep={2} />
 
       {/* Success Circle */}
       <div className="w-40 h-40 rounded-full bg-green-100 flex items-center justify-center">
@@ -37,7 +31,9 @@ export default function CardSentPage() {
       </div>
 
       {/* Success Message */}
-      <h1 className="text-2xl font-bold text-green-700">Card Sent Successfully!</h1>
+      <h1 className="text-2xl font-bold text-green-700">
+        Card Sent Successfully!
+      </h1>
 
       {/* Action Button */}
       <Button
@@ -50,4 +46,3 @@ export default function CardSentPage() {
     </div>
   );
 }
-
