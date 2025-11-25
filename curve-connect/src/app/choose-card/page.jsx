@@ -20,8 +20,8 @@ export default function ChooseCardPage() {
   const handleReset = () => setSelectedId(null);
 
   return (
-    <div className="p-10 max-w-1xl">
-      <StepperComponent activeStep={1} />
+    <div className="p-10 max-w-1xl flex flex-col items-center justify-center">
+      <StepperComponent activeStep={0} />
       <Typography
         variant="h5"
         sx={{

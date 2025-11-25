@@ -40,7 +40,7 @@ export default function SendCardPage() {
 
   return (
     <div className="p-6 max-w-xl mx-auto">
-      <StepperComponent activeStep={0} />
+      <StepperComponent activeStep={1} />
 
       <PreviewCard card={selectedCard} />
       <CardForm
