@@ -6,11 +6,18 @@ import greetingCardData from "@/constants/greetingCardData";
 import SelectCard from "@/components/SelectCard";
 import StepperComponent from "@/components/Stepper";
 import { Typography, Button, Grid } from "@mui/material";
+import CardFilter from "@/components/CardFilter";
 
 export default function ChooseCardPage() {
   const [selectedId, setSelectedId] = useState(null);
   const router = useRouter();
-  const steps = ["Select Card", "Add Details", "Confirmation"];
+  const [filter, setFilter] = useState("All");
+
+  // Filter cards before mapping
+  const filteredCards =
+    filter === "All"
+      ? greetingCardData
+      : greetingCardData.filter((card) => card.type === filter);
 
   const handleConfirm = () => {
     if (!selectedId) return;
@@ -20,7 +27,7 @@ export default function ChooseCardPage() {
   const handleReset = () => setSelectedId(null);
 
   return (
-    <div className="p-10 max-w-1xl flex flex-col items-center justify-center">
+    <div className="p-10 flex flex-col items-center justify-center">
       <StepperComponent activeStep={0} />
       <Typography
         variant="h5"
@@ -34,9 +41,14 @@ export default function ChooseCardPage() {
       >
         Choose a Card Template
       </Typography>
+      <CardFilter
+        options={["All", "Thank You", "Congratulations", "Birthday", "Christmas", "Values"]}
+        selected={filter}
+        onChange={setFilter}
+      />
 
-      <Grid container spacing={2}>
-        {greetingCardData.map((card) => {
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        {filteredCards.map((card) => {
           return (
             <Grid item xs={12} sm={6} md={4} key={card.id}>
               <SelectCard
