@@ -9,7 +9,7 @@ export default function CardSentPage() {
   const steps = ["Select Card", "Add Details", "Confirmation"];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-6 p-6">
+    <div className="p-10 flex flex-col items-center justify-center">
       <StepperComponent activeStep={2} />
       <div className="w-40 h-40 rounded-full bg-green-100 flex items-center justify-center">
         <svg
