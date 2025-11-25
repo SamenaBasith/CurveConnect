@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
       fixed top-0 left-0 z-50
     ">
       <div className="flex items-center">
+        <Link href="/">
         <Image 
           src="/kpmg-curve-logo-no-background.png" 
           alt="Logo"
@@ -17,6 +19,7 @@ export default function Header() {
           height={40} 
           className="h-auto w-auto"
         />
+        </Link>
       </div>
     </header>
   );
