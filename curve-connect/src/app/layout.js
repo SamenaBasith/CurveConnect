@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <div className="flex flex-col min-h-screen">
           <Header />
           <Hero />
-          <main className="w-full pb-30 bg-blue-100 text-blue-900 flex flex-col items-center justify-center">{children}</main>
+          <main className="w-full pb-30 bg-blue-100 text-blue-900">{children}</main>
           <div className="fixed bottom-0 left-0 w-full">
             <Footer />
           </div>

@@ -11,7 +11,7 @@ export default function CardSentPage() {
   return (
     <div className="p-10 flex flex-col items-center justify-center">
       <StepperComponent activeStep={2} />
-      <div className="w-40 h-40 rounded-full bg-green-100 flex items-center justify-center">
+      <div className="w-60 h-60 rounded-full bg-green-100 flex items-center justify-center">
         <svg
           className="w-20 h-20 text-green-600"
           fill="none"
@@ -27,7 +27,7 @@ export default function CardSentPage() {
         </svg>
       </div>
 
-      <h1 className="text-2xl font-bold text-green-700">
+      <h1 className="p-10 text-2xl font-bold text-green-700">
         Card Sent Successfully!
       </h1>
 

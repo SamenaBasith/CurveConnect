@@ -35,7 +35,7 @@ export default function SendCardContent() {
   if (!selectedCard) return <p className="text-center p-6">Loading...</p>;
 
   return (
-    <div className="p-6 max-w-xl mx-auto">
+    <div className="p-8 max-w-xl mx-auto">
       <StepperComponent activeStep={1} />
       <PreviewCard card={selectedCard} />
       <CardForm
