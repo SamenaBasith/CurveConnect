@@ -23,7 +23,7 @@ export default function SendCardContent() {
     openModal,
     closeModal,
     confirmSend,
-  } = useSendCard(selectedId);
+  } = useSendCard(selectedId, selectedCard);
 
   useEffect(() => {
     if (!selectedId) return;

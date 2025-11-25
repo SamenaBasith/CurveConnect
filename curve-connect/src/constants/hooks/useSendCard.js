@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function useSendCard(selectedId) {
+export default function useSendCard(selectedId, selectedCard) {
   const router = useRouter();
 
   const [form, setForm] = useState({ recipientEmail: "", message: "", signature: "" });
@@ -39,7 +39,7 @@ export default function useSendCard(selectedId) {
       const res = await fetch("/api/send-card", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ templateId: selectedId, ...form }),
+        body: JSON.stringify({ templateId: selectedId, ...form, cardSrc: selectedCard.src }),
       });
 
       if (res.ok) {
