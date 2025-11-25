@@ -12,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="flex-col">
+        <div className="flex flex-col min-h-screen">
           <Header />
           <Hero />
-          <main className="w-full pb-30 bg-blue-100 text-blue-900">{children}</main>
+          <main className="w-full pb-30 bg-blue-100 text-blue-900 flex flex-col items-center justify-center">{children}</main>
           <div className="fixed bottom-0 left-0 w-full">
             <Footer />
           </div>
